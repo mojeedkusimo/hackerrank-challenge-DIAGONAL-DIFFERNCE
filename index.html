@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution to Hackerrank Challenge: Diagonal Difference</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="h1">Solution to Hackerrank Challenge: <a href="https://www.hackerrank.com/challenges/diagonal-difference/problem">Diagonal Difference</a></h1>
+                <p>Fill the boxes with any number of your choice</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 bg-primary border rounded p-3 ">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">
+                        <input type="text" name="" id="a1">
+                    </div>
+                    <div class="col"></div>
+                    <div class="col">
+                        <input type="text" name="" id="b1">
+                    </div>
+                    <div class="col"></div>
+                    <div class="col">
+                        <input type="text" name="" id="c1">
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col p-3">
+                        <input type="text" name="" id="a2">
+                    </div>
+                    <div class="col"></div>
+                    <div class="col p-3">
+                        <input type="text" name="" id="b2">
+                    </div>
+                    <div class="col"></div>
+                    <div class="col p-3">
+                        <input type="text" name="" id="c2">
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col">
+                        <input type="text" name="" id="a3">
+                    </div>
+                    <div class="col"></div>
+                    <div class="col">
+                        <input type="text" name="" id="b3">
+                    </div>
+                    <div class="col"></div>
+                    <div class="col">
+                        <input type="text" name="" id="c3">
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row text-center mt-5">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <button class="btn btn-primary" onclick="getValue()">Calculate Absolute Difference</button>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row text-center mt-5">
+            <div class="col-2"></div>
+            <div class="col-8">
+                Difference is:
+                <input class=" border border-primary" type="text" name="" id="solution">
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+
+    <script>
+        function diagonalDifference(arr) {
+
+            let rightDiag = 0;
+            let leftDiag = 0;
+            
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr[i].length; j++){
+                    
+                    if (i == j) {
+                        rightDiag += arr[i][j];
+                    }
+                    
+                    if (i + j == 2) {
+                        leftDiag += arr[i][j];
+                    }
+                }
+            }
+
+            console.log(Math.abs(rightDiag - leftDiag));
+            return Math.abs(rightDiag - leftDiag);
+        }
+
+        function getValue() {
+
+            let a1 = Number(document.getElementById('a1').value),
+                b1 = Number(document.getElementById('b1').value),
+                c1 = Number(document.getElementById('c1').value),
+                a2 = Number(document.getElementById('a2').value),
+                b2 = Number(document.getElementById('b2').value),
+                c2 = Number(document.getElementById('c2').value),
+                a3 = Number(document.getElementById('a3').value),
+                b3 = Number(document.getElementById('b3').value),
+                c3 = Number(document.getElementById('c3').value),
+
+                arr = [[a1,b1,c1],[a2,b2,c2],[a3,b3,c3]];
+
+            document.getElementById('solution').value = diagonalDifference(arr);
+        }
+    </script>
+</body>
+</html>
